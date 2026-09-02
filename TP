@@ -1,0 +1,97 @@
+{
+  "status": "PENDING_DEV_VALIDATION_BEFORE_LIVE_HTTPS",
+  "contractPolicy": "Transport Profile outer attributes/nesting stay identical for every interface; only interfaceDetails changes by interface type.",
+  "humanEditPolicy": "Only a HUMAN USER may edit existing canonical values pre-LIVE. AI/agent has no payload value-edit authority.",
+  "plainHttpsReceiverIgnoredFields": [
+    "SSL Certificate",
+    "SSL Certificate CN - Expiry",
+    "SSL Certificate Id"
+  ],
+  "httpsAs2CertificateContract": "UNCHANGED / separate from plain HTTPS",
+  "targetTransportProfileValidation": {
+    "interfaceType": "HTTPS",
+    "propertyMap": {
+      "Protocol": "REST",
+      "Partner URL": "<PARTNER_RECEIVER_URL>",
+      "Request Method": "POST",
+      "Request Format": "Request Body",
+      "Receiver Authentication Type": "OAuth2",
+      "Gateway URL": "URL will be shared later after API Publish is successful.",
+      "Are Input Files Compressed?": "False",
+      "Receiver Grant Type": "client_credentials",
+      "Receiver Token Endpoint": "<RECEIVER_TOKEN_ENDPOINT>",
+      "Receiver Client Id": "<RECEIVER_CLIENT_ID>",
+      "Receiver Client Secret": "<RECEIVER_CLIENT_SECRET>"
+    },
+    "transportProfileName": "<TARGET_TRANSPORT_PROFILE_NAME>",
+    "hipEnvironment": "DEV"
+  },
+  "targetTransportProfileOrchestrationCreate": {
+    "operation": "Create",
+    "systemName": "<TARGET_PARTNER_OR_SYSTEM_NAME>",
+    "systemType": "Partner",
+    "requestedBy": "<REQUESTED_BY>",
+    "hipEnvironment": "DEV",
+    "transportProfileDetails": [
+      {
+        "transportProfileName": "<TARGET_TRANSPORT_PROFILE_NAME>",
+        "transportProfileUsage": "Receiver",
+        "isFirstMigration": true,
+        "transportProfileOperation": "create",
+        "deploymentGroupName": "hip-automation",
+        "interfaceDetails": [
+          {
+            "interfaceType": "HTTPS",
+            "interfaceRole": "Primary",
+            "parameters": {
+              "Protocol": "REST",
+              "Partner URL": "<PARTNER_RECEIVER_URL>",
+              "Request Method": "POST",
+              "Request Format": "Request Body",
+              "Receiver Authentication Type": "OAuth2",
+              "Gateway URL": "URL will be shared later after API Publish is successful.",
+              "Are Input Files Compressed?": "False",
+              "Receiver Grant Type": "client_credentials",
+              "Receiver Token Endpoint": "<RECEIVER_TOKEN_ENDPOINT>",
+              "Receiver Client Id": "<RECEIVER_CLIENT_ID>",
+              "Receiver Client Secret": "<RECEIVER_CLIENT_SECRET>"
+            }
+          }
+        ],
+        "isInterfaceDetailChangeRequired": false,
+        "documentTypeDetails": [
+          {
+            "documentTypeName": "<TARGET_DOCUMENT_TYPE_NAME>",
+            "documentTypeVersion": "1.0",
+            "dataFormatType": "<DATA_FORMAT>"
+          }
+        ],
+        "isDocumentTypeChangeRequired": false,
+        "flowSteps": [],
+        "isFlowStepChangeRequired": false,
+        "callbackConfig": null,
+        "isCallbackConfigChangeRequired": false,
+        "tags": [
+          {
+            "key": "customer",
+            "value": "<CUSTOMER_NAME>"
+          },
+          {
+            "key": "haftAccount",
+            "value": "<TARGET_ACCOUNT_NAME>"
+          }
+        ],
+        "isTagChangeRequired": false,
+        "splitterConfig": {
+          "isSplitRequired": false,
+          "regexExpression": ""
+        },
+        "isTPSplitterConfigChangeRequired": false,
+        "ediConfig": null,
+        "isEdiConfigurationChangeRequired": false
+      }
+    ],
+    "transportProfileEditDetails": [],
+    "crqDetails": null
+  }
+}
